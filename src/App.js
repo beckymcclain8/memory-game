@@ -3,53 +3,72 @@ import Pictures from "./components/pictures";
 import pictures from "./pictures.json";
 import Navbar from "./components/navbar";
 import Header from "./components/header";
-import Container from "./components/container";
+// import Container from "./components/container";
 import Footer from "./components/footer";
 // import Wrapper from "./components/Wrapper";
 
 import "./App.css";
 
-// if/else statement if false game over, if true give a point
-// click handler
-//  let score = 0;
-//  let topScore = 0;
-
 class App extends Component {
   state = {
     pictures,
-    clicked: false,
     score: 0,
-    topScore: 0
+    topScore: 0,
+    idArray: [],
   };
 
-// endGame = () => {
+endGame = () => {
+alert("GAME OVER!");
+let startOver = {
+  score: 0,
+  topScore: 0,
+  idArray: []
+};
 
-// };
+this.setState(startOver);
+console.log("startOver", startOver);
+};
 
-randomize
+randomize= () => {
+pictures.sort(function(a, b){return 0.5 - Math.random()});
+};
 
 changeClickedStatus= id => {
 
   let newState = { ...this.state };
-
   console.log("newState", newState);
 
-  if (newState.clicked === false) {
-    let newState = {
+  const newArray = this.state.idArray;
+  console.log("newArray", newArray);
+
+  // if (newArray.includes(id)) {
+  //   console.log("id", id);
+  //   this.endGame()
+  // } else {
+  //   newState = {
+  //     score: this.state.score + 1,
+  //     topScore: this.state.topScore + 1,
+  //       }   
+  
+  //     this.setState(newState);
+  //     console.log("newState", newState);
+  //     this.randomize();
+  // }
+  newArray.includes(id)
+    ? this.endGame()
+
+    : newArray.push(id);
+    
+    newState = {
     score: this.state.score + 1,
     topScore: this.state.topScore + 1,
-    clicked: true
-    }   
+      }   
+
     this.setState(newState);
-    console.log(newState);
+    console.log("newState", newState);
+    this.randomize();
+   
   } 
-  else {
-    // endGame();
-    console.log("Didn't work");
-  }
-  
- 
-};
 
   render(props) {
     return (
