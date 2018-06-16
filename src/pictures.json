@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 1, 
         "name": "Ant Man",
         "image": "./images/antMan.jpg",
         "clicked": false
@@ -58,6 +58,7 @@
         "name": "Spiderman",
         "image": "./images/spiderman.png",
         "clicked": false
+
     },
     {
         "id": 11,
