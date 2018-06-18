@@ -1,9 +1,15 @@
-Avengers Memory game
+## Avengers Clicky Game
 
+This game was created with React.  It's a fun clicky game to test your memory.  There are 12 characters.  Each time you click on one your score will increment by 1 and the characters will be mixed up.  If you click the same character twice you lose the game.  
 
+![Avengers Clicky Game](/public/images/game.JPG)
 
+Visit this link to play the game : #
 
- project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+This app was created and is maintained by Becky McClain.
+
+------------------------------------------------------------------------------------------------------------------------------
+ This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
