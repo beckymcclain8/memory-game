@@ -4,8 +4,8 @@ import "./footer.css";
 const Footer = props => (
   <footer className="footer">
     <div className="bottom"> 
-    "Clicky Game!"
-    <img alt="react" src="./images/react.png"></img>
+    Clicky Game!
+    <img id="footerImg" alt="react" src="./images/react.png"></img>
     </div>
   </footer>
 );

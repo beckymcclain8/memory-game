@@ -1,10 +1,14 @@
 .footer {
     background: #6956af;
     height: 100px;
-    position: relative;
+    position: fixed;
     color: #fff;
     overflow: auto;
     display: block;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .footer>.bottom {
@@ -14,6 +18,14 @@
     right: 0;
     background: #5138a1;
     padding: 8px;
-    font-weight: 600;
+    /* font-weight: 600; */
+    text-decoration: none;
+    color: #fff;
+    font-weight: 900;
+}
+
+#footerImg {
+    width: 30px;
+    height: auto;
 }
 

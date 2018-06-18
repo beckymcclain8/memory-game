@@ -1,6 +1,7 @@
 import React from "react";
 import "./navbar.css";
 
+
 const Navbar = props => (
   <div>
     <nav className="nav">
@@ -9,7 +10,7 @@ const Navbar = props => (
           <a href="localhost:3000">Clicky Game</a>
         </li>
         <li className="game">Click a picture to begin!</li>
-        <li className="game">Score: 0 | Top Score: 0</li>
+        <li className="game">Score: {props.score} | Top Score: {props.topScore}</li>
       </ul>
     </nav>
   </div>

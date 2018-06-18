@@ -14,81 +14,79 @@ class App extends Component {
     pictures,
     score: 0,
     topScore: 0,
-    idArray: [],
+    idArray: []
   };
 
-endGame = () => {
-alert("GAME OVER!");
-let startOver = {
-  score: 0,
-  topScore: 0,
-  idArray: []
-};
+  endGame = () => {
 
-this.setState(startOver);
-console.log("startOver", startOver);
-};
+    // let endGameState = {
+    //   score: 0,
+    //   idArray: []
+    // };
 
-randomize= () => {
-pictures.sort(function(a, b){return 0.5 - Math.random()});
-};
 
-changeClickedStatus= id => {
 
-  let newState = { ...this.state };
-  console.log("newState", newState);
+    // console.log("endGameState", endGameState);
+    this.setState({score: 0, idArray: []});
+    this.highScore();
 
-  const newArray = this.state.idArray;
-  console.log("newArray", newArray);
+  };
 
-  // if (newArray.includes(id)) {
-  //   console.log("id", id);
-  //   this.endGame()
-  // } else {
-  //   newState = {
-  //     score: this.state.score + 1,
-  //     topScore: this.state.topScore + 1,
-  //       }   
-  
-  //     this.setState(newState);
-  //     console.log("newState", newState);
-  //     this.randomize();
-  // }
-  newArray.includes(id)
-    ? this.endGame()
+  highScore = () => {
+    if(this.state.score > this.state.topScore) {
+      this.setState({ topScore: this.state.score})
+      console.log("new high score");
+    } else {
+    this.setState({ topScore: this.state.topScore})
+    console.log("same high score");
+    }
+  }
 
-    : newArray.push(id);
-    
-    newState = {
-    score: this.state.score + 1,
-    topScore: this.state.topScore + 1,
-      }   
+  randomize = () => {
+    pictures.sort(function(a, b) {
+      return 0.5 - Math.random();
+    });
+  };
 
-    this.setState(newState);
-    console.log("newState", newState);
-    this.randomize();
-   
-  } 
+  changeClickedStatus = id => {
+    let newState = { ...this.state };
+    console.log("newState/State", newState);
+
+    const newArray = this.state.idArray;
+    console.log("newArray", newArray);
+
+    if (newArray.includes(id)) {
+
+      this.endGame();
+
+    } else {
+      newArray.push(id);
+      
+      newState = {
+        score: this.state.score + 1,
+      };
+
+      this.setState(newState);
+      console.log("newState", newState);
+      this.randomize();
+    }
+  };
 
   render(props) {
     return (
       <div>
-        <Navbar />
+        <Navbar score={this.state.score} topScore={this.state.topScore} />
         <Header />
-        {/* <Container> */}
         {this.state.pictures.map(picture => (
-          <Pictures 
-          id={picture.id}
-          key={picture.id}
-          image={picture.image} 
-          name={picture.name}
-          clicked={picture.clicked}
-          // data-value="false"
-          changeClickedStatus={this.changeClickedStatus}
-          // onClick={() => props.changeClickedStatus(props.id)}
+          <Pictures
+            id={picture.id}
+            key={picture.id}
+            image={picture.image}
+            name={picture.name}
+            clicked={picture.clicked}
+            changeClickedStatus={this.changeClickedStatus}
           />
         ))}
-        {/* </Container> */}
         <Footer />
       </div>
     );
